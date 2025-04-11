@@ -1,0 +1,31 @@
+# ~/.bash_aliases
+
+echo "> Sourcing '~/.bash_aliases'..."
+
+# Simple Aliases
+alias c="cd"
+alias v="vim"
+
+# ls aliases
+alias l="ls -CF"
+alias la="ls -aF"
+alias ll="ls -lF"
+alias lla="ls -laF"
+
+# Windows Aliases
+alias cls="clear"
+
+# Git Multipull
+gitmultipull() {
+    eval "$(ssh-agent -s)"
+    ssh-add -t 300 ~/.ssh/github
+    find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;
+    ssh-add -d ~/.ssh/github
+}
+
+# Cat file with colors/escape chars
+ccat() { echo -e "$(cat $1)"; }
+
+ipinfo() { curl "https://ipinfo.io/$@"; }
+
+echo "< Sourced '~/.bash_aliases'."
