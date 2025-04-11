@@ -1,0 +1,3 @@
+useradd -m -d /home/dir -s /usr/sbin/nologin -G service-users username
+passwd -l username
+move .setup.sh and run

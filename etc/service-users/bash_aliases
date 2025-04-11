@@ -1,0 +1,14 @@
+# shared bash_aliases for service users
+
+# Simple aliases
+alias c="cd"
+alias v="vim"
+
+# ls aliases
+alias l="ls -F"
+alias la="ls -aF"
+alias ll="ls -lF"
+alias lla="ls -laF"
+
+# Windows Aliases
+alias cls="clear"
