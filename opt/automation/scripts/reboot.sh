@@ -1,30 +1,46 @@
-#!/bin/bash
+#!/bin/sh
 # reboot.sh
-# I don't really use this one tbh
+# Reboots server with a 5m warning
+# 
+# Dependencies:
+# - wall (from util-linux package)
+# - curl
+# - logger
+# - sleep
+# - reboot
 
+# Config Vars
 WEBHOOK_URL="" # ADD URL HERE
+LOG_TAG="reboot"
 
+# Helper Functions
 send_discord_message() {
-    local message="$1"
-    curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$message\"}" "$WEBHOOK_URL"
+    message="$1"
+    if [ -n "$WEBHOOK_URL" ]; then
+        discord_message="**$message**"
+        curl -s -H "Content-Type: application/json" -X POST -d "{\"content\": \"$message\"}" "$WEBHOOK_URL" >/dev/null 2>&1
+    fi
 }
 
-wall "Warning: The server will reboot in 5 minutes."
-send_discord_message "**Warning: The server will reboot in 5 minutes.**"
+log_and_notify() {
+    message="$1"
+    logger -t "$LOG_TAG" "$message"
+    wall "$message"
+    send_discord_message "$message"
+}
+
+log_and_notify "Warning: The server will reboot in 5 minutes."
 
 sleep 240
 
-wall "WARNING: The server will reboot in 1 minute."
-send_discord_message "**WARNING: The server will reboot in 1 minute.**"
+log_and_notify "WARNING: The server will reboot in 1 minute."
 
 sleep 60
 
-wall "The server is now rebooting."
-send_discord_message "**<@348121438169071618> :red_square:\\nThe server is now rebooting.**"
+log_and_notify "The server is now rebooting."
 
 sleep 1
 
-# Stop critical systems here
+# Stop critical systems here as needed
 
-
-/sbin/shutdown -r now
+reboot
