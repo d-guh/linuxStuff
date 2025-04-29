@@ -45,8 +45,8 @@ tail -n 0 -F $LOG_FILE | while read -r LINE; do
     case $LINE in
 
     *\<*\>*)
-        CHAT=$(echo "$LINE" | sed -E 's/.*\<([^>]*)\> (.*)/\1: \2/')
-        echo "$CHAT"
+        CHAT=$(echo "$LINE" | sed -E 's/^.*INFO\]: (<[^>]+> .*)/\1/')
+        echo "Chat: $CHAT"
         ;;
 
     # joins and leaves
