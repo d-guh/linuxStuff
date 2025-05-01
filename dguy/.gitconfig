@@ -8,12 +8,13 @@
     autocrlf = input # Linux/Mac (CRLF -> LF on commit, LF on checkout)
     safecrlf = warn # Warns on conversion (Mixed ending files cannot be recreated)
 [init]
-    defaultBranch = master
+    defaultBranch = main
 [alias]
     co = checout
     ci = commit
     st = status
     br = branch
+    sw = switch
     ps = push
     pl = pull
     pr = pull --rebase
