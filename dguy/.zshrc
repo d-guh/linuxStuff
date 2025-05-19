@@ -74,7 +74,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Privacy umask
-umask 077
+umask 0377
 
 # Alias definitions
 if [ -f ~/.sh_aliases ]; then
