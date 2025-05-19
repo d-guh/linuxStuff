@@ -1,4 +1,5 @@
-# ~/.bash_aliases
+# ~/.sh_aliases
+# generic shell aliases
 
 echo "> Sourcing '~/.bash_aliases'..."
 
