@@ -3,6 +3,9 @@
 
 echo "> Sourcing '~/.zshrc'..."
 
+# Privacy umask
+umask 0377
+
 # Keybindings
 bindkey '^H' backward-kill-word                 # ctrl + backspace
 bindkey '5~' kill-word                          # ctrl + delete
@@ -44,9 +47,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # Prompt with color
-# Note: (256-Color) 010 = green, 012 = blue
 if [[ "$color_prompt" == "yes" ]]; then
-    PROMPT='%F{010}%n@%m%f:%F{012}%~%f$ '
+    PROMPT='%F{010}%n%f@%F{010}%m%f:%F{012}%~%f$ '
 else
     PROMPT='%n@%m:%~$ '
 fi
@@ -72,9 +74,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-
-# Privacy umask
-umask 0377
 
 # Alias definitions
 if [ -f ~/.sh_aliases ]; then

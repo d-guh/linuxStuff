@@ -1,7 +1,7 @@
 # ~/.sh_aliases
 # generic shell aliases
 
-echo "> Sourcing '~/.bash_aliases'..."
+echo "> Sourcing '~/.sh_aliases'..."
 
 # Simple Aliases
 alias c="cd"
@@ -29,4 +29,4 @@ ccat() { echo -e "$(cat $1)"; }
 
 ipinfo() { curl "https://ipinfo.io/$@"; }
 
-echo "< Sourced '~/.bash_aliases'."
+echo "< Sourced '~/.sh_aliases'."
