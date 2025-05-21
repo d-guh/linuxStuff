@@ -2,7 +2,7 @@
 
 echo "> Sourcing '~/.zprofile'..."
 # Privacy umask
-umask 0377
+umask 0077
 
 echo "< Sourced '~/.zprofile'."
 

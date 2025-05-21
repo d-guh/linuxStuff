@@ -11,7 +11,7 @@ esac
 echo "> Sourcing '~/.bashrc'..."
 
 # Privacy umask
-umask 0377
+umask 0077
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options

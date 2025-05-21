@@ -4,7 +4,7 @@
 echo "> Sourcing '~/.zshrc'..."
 
 # Privacy umask
-umask 0377
+umask 0077
 
 # Keybindings
 bindkey '^H' backward-kill-word                 # ctrl + backspace

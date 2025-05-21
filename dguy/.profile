@@ -10,7 +10,7 @@
 
 echo "> Sourcing '~/.profile'..."
 # Privacy umask
-umask 0377
+umask 0077
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then

@@ -6,6 +6,7 @@ echo "> Sourcing '~/.sh_aliases'..."
 # Simple Aliases
 alias c="cd"
 alias v="vim"
+alias nv="nvim"
 
 # ls aliases
 alias l="ls -CF"
