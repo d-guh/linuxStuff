@@ -48,7 +48,7 @@ fi
 
 # Prompt with color
 if [[ "$color_prompt" == "yes" ]]; then
-    PROMPT='%F{010}%n%f@%F{010}%m%f:%F{012}%~%f$ '
+    PROMPT='%F{010}%n%f@%F{010}%m%f:%F{012}%~%f%F{008}$%f '
 else
     PROMPT='%n@%m:%~$ '
 fi
