@@ -73,5 +73,5 @@ server {
 server {
     listen 80;
     server_name dguy.net www.dguy.net 99.96.122.118 99-96-122-118.lightspeed.gnvlsc.sbcglobal.net;
-    return 301 https://dguy.net;
+    return 301 https://dguy.net$request_uri;
 }
