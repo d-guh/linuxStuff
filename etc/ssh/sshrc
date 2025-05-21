@@ -1,6 +1,15 @@
 #!/bin/sh
+# /etc/ssh/sshrc
+
 SERVER_TIME=$(date +"%Y-%m-%d %H:%M:%S %Z")
 WEBHOOK_URL=""
-MESSAGE="<@348121438169071618> :desktop: :shell:\\nUser \`$USER\` **has logged on over SSH from** \`${SSH_CONNECTION%% *}\`\\nServer Time: \`$SERVER_TIME\`"
+
+SRC_IP="${SSH_CONNECTION%% *}"
+
+if [ -n "$SSH_TTY" ]; then
+    MESSAGE="<@348121438169071618> :desktop: :shell:\\nUser \`$USER\` **has logged on over SSH from** \`$SRC_IP\`\\nServer Time: \`$SERVER_TIME\`"
+else
+    MESSAGE=":floppy_disk: Non-interactive SSH command by \`$USER\` from \`$SRC_IP\`\\nServer Time: \`$SERVER_TIME\`"
+fi
 
 curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"${MESSAGE}\"}" "$WEBHOOK_URL"
