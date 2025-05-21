@@ -10,6 +10,9 @@ esac
 
 echo "> Sourcing '~/.bashrc'..."
 
+# Privacy umask
+umask 0377
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -54,9 +57,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# Note: (ANSI COLOR) 01;32m == 92m
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[92m\]\u\[\033[00m\]@\[\033[92m\]\h\[\033[00m\]:\[\033[94m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -82,9 +84,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-
-# Privacy umask
-umask 0377
 
 # Alias definitions
 if [ -f ~/.sh_aliases ]; then
