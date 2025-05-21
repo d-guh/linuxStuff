@@ -12,4 +12,4 @@ else
     MESSAGE=":floppy_disk: Non-interactive SSH command by \`$USER\` from \`$SRC_IP\`\\nServer Time: \`$SERVER_TIME\`"
 fi
 
-curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"${MESSAGE}\"}" "$WEBHOOK_URL"
+curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"${MESSAGE}\"}" "$WEBHOOK_URL" >/dev/null 2>&1
