@@ -13,6 +13,7 @@ netcat-traditional
 nmap
 python3
 sl
+ssh
 tealdeer
 tmux
 traceroute
