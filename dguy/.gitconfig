@@ -1,11 +1,11 @@
 # ~/.gitconfig
 [user]
-    name = dguyserv
+    #name = dguyserv # If you want to set a specific name per machine etc.
     email = ddcool535@gmail.com
-    signingkey = ~/.ssh/githubsign.pub # Key to show publicly (signs with priv)
+    signingkey = ~/.ssh/githubsign.pub
 [core]
-    # autocrlf = true # Windows (CRLF -> LF on commit, LF -> CRLF on checkout)
-    autocrlf = input # Linux/Mac (CRLF -> LF on commit, LF on checkout)
+    #autocrlf = true # Windows (CRLF -> LF on commit, LF -> CRLF on checkout)
+    #autocrlf = input # Linux/Mac (CRLF -> LF on commit, LF on checkout)
     safecrlf = warn # Warns on conversion (Mixed ending files cannot be recreated)
 [init]
     defaultBranch = main
