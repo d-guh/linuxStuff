@@ -8,6 +8,9 @@ alias c="cd"
 alias v="vim"
 alias nv="nvim"
 
+# Neovim cursor bruh
+alias nvim='nvim; echo -ne "\e[5 q"'
+
 # ls aliases
 alias l="ls -CF"
 alias la="ls -aF"

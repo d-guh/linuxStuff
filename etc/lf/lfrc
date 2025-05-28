@@ -1,0 +1,3 @@
+map . set hidden!
+map Q &lf -remote 'send quit'; lf -remote 'quit'
+set autoquit

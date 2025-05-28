@@ -1,4 +1,4 @@
-" ~/.vimrc
+" .vimrc
 set autoindent
 set smartindent
 set tabstop=4 softtabstop=0
@@ -12,3 +12,5 @@ set belloff=all
 
 " Cosmetic
 colorscheme default
+"set termguicolors
+set background=light
