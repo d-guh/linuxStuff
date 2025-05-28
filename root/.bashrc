@@ -8,7 +8,7 @@ esac
 
 echo "> Sourcing '~/.bashrc'..."
 
-umask 0377
+umask 0077
 
 # Color prompt
 case "$TERM" in
