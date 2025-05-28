@@ -1,4 +1,4 @@
-# /etc/nginx/sites-available/dguy.net
+# /etc/sites-available/dguy.net
 server {
     server_name dguy.net www.dguy.net;
     root /var/www/dguy.net;
@@ -17,20 +17,28 @@ server {
         internal;
     }
 
+    # Enable ssi
+    ssi on;
+    #ssi_types text/html; # Default
+
+    location /includes/ {
+        internal;
+    }
+
     # Security headers
     add_header X-Frame-Options DENY;
     add_header X-Content-Type-Options nosniff;
     add_header X-XSS-Protection "1; mode=block";
-    add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none';";
+    add_header Content-Security-Policy "default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self'; object-src 'none';";
     add_header Referrer-Policy "strict-origin-when-cross-origin";
 
-    # Block crawlers
+    # Block crawlers / stop indexing
     location /robots.txt {
         add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive, notranslate, noimageindex";
     }
 
     # Block Scripts Globally
-    location ~* \.(php|sh|pl|cgi|py|rb|exe|bat)$ {
+    location ~* \.(js|php|sh|pl|cgi|py|rb|exe|bat)$ {
         deny all;
         return 403;
         error_log /var/log/nginx/denied.log warn;
