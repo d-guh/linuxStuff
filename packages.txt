@@ -22,3 +22,5 @@ unzip
 vim
 nvim
 wget
+zsh
+zsh-autosuggestions

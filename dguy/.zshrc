@@ -9,8 +9,8 @@ umask 0077
 # Keybindings
 bindkey '^H' backward-kill-word                 # ctrl + backspace
 bindkey '5~' kill-word                          # ctrl + delete
-bindkey '^5C' forward-word                      # ctrl + ->
-bindkey '^5D' backward-word                     # ctrl + <-
+bindkey '^[[1;5C' forward-word                  # ctrl + ->
+bindkey '^[[1;5D' backward-word                 # ctrl + <-
 bindkey '^[[5~' beginning-of-buffer-or-history  # page up
 bindkey '^[[6~' end-of-buffer-or-history        # page down
 bindkey '^[[H' beginning-of-line                # home
@@ -21,6 +21,7 @@ bindkey '^Z' undo                               # shift + tab (undo last action)
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=2000
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
