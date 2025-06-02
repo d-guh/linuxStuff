@@ -1,5 +1,5 @@
 # ~/.sh_aliases
-# generic shell aliases
+# Generic shell aliases
 
 echo "> Sourcing '~/.sh_aliases'..."
 
@@ -9,16 +9,23 @@ alias v="vim"
 alias nv="nvim"
 
 # Neovim cursor bruh
-alias nvim='nvim; echo -ne "\e[5 q"'
+nvim() {
+    command nvim "$@"
+    echo -ne "\e[5 q"  # Or your desired default shape
+}
 
 # ls aliases
 alias l="ls -CF"
 alias la="ls -aF"
 alias ll="ls -lF"
 alias lla="ls -laF"
+# alias lf="lf -single" # no IPC server (set autoquit in lfrc instead)
 
 # Windows Aliases
 alias cls="clear"
+
+# Funny Aliases
+alias sl="sl -e" # my sanity
 
 # Git Multipull
 gitmultipull() {
