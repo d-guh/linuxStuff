@@ -46,22 +46,19 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# Prompt with color
+# Color prompt stuff
+# %B-%b bold
+# %F-%f format (color)
+# 001 red
+# 010 intense green
+# 004 blue
+# 009 intense red
 if [[ "$color_prompt" == "yes" ]]; then
-    PROMPT='%F{001}%n%f@%F{010}%m%f:%F{012}%~%f%F{009}#%f '
+    PROMPT='%B%F{001}%n%f@%F{010}%m%f:%F{004}%~%f%F{009}#%f%b '
 else
     PROMPT='%n@%m:%~$ '
 fi
 unset color_prompt force_color_prompt
-
-# Terminal title (for xterm/rxvt/etc)
-case "$TERM" in
-xterm*|rxvt*)
-    precmd() {
-        print -Pn "\e]0;${debian_chroot:+($debian_chroot)}%n@%m: %~\a"
-    }
-    ;;
-esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

@@ -3,7 +3,7 @@
 
 echo "> Sourcing '~/.sh_aliases'..."
 
-# Simple Aliases
+# Simple aliases
 alias c="cd"
 alias v="vim"
 alias nv="nvim"
@@ -21,10 +21,13 @@ alias ll="ls -lF"
 alias lla="ls -laF"
 # alias lf="lf -single" # no IPC server (set autoquit in lfrc instead)
 
-# Windows Aliases
+# Alert alias
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Windows aliases
 alias cls="clear"
 
-# Funny Aliases
+# Funny aliases
 alias sl="sl -e" # my sanity
 
 # Git Multipull

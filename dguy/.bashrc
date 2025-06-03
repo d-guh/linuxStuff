@@ -33,7 +33,7 @@ shopt -s checkwinsize
 shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -57,8 +57,13 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# Color prompt stuff
+# 1; bold
+# 92m intense green
+# 34m blue
+# 90m intense black (gray)
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[92m\]\u\[\033[00m\]@\[\033[92m\]\h\[\033[00m\]:\[\033[94m\]\w\[\033[90m\]\$\[\033[00m\] '
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;92m\]\u\[\e[1;00m\]@\[\e[1;92m\]\h\[\e[1;00m\]:\[\e[1;34m\]\w\[\e[1;90m\]\$\[\e[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

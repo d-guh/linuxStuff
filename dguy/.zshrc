@@ -47,9 +47,15 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# Prompt with color
+# Color prompt stuff
+# %B-%b bold
+# %F-%f format (color)
+# Uses 256 color codes
+# 010 intense green
+# 004 blue
+# 008 intense black (gray)
 if [[ "$color_prompt" == "yes" ]]; then
-    PROMPT='%F{010}%n%f@%F{010}%m%f:%F{012}%~%f%F{008}$%f '
+    PROMPT='%B%F{010}%n%f@%F{010}%m%f:%F{004}%~%f%F{008}$%f%b '
 else
     PROMPT='%n@%m:%~$ '
 fi
