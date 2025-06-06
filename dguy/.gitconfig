@@ -1,6 +1,6 @@
 # ~/.gitconfig
 [user]
-    #name = dguyserv # If you want to set a specific name per machine etc.
+    name = D-Guy # Name for cmdline, web shows account
     email = ddcool535@gmail.com
     signingkey = ~/.ssh/githubsign.pub
 [core]
