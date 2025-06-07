@@ -20,7 +20,7 @@ traceroute
 tree
 unzip
 vim
-nvim
+neovim
 wget
 zsh
 zsh-autosuggestions
