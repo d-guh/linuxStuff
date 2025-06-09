@@ -1,5 +1,5 @@
 #!/bin/sh
-# shutdown_alert.sh
+# shutdown-alert.sh
 # (Hopefully) sends an alert whenever the server is shutting down
 # This one is likley best implemented as a service
 #

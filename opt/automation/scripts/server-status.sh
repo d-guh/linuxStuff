@@ -1,7 +1,7 @@
 #!/bin/sh
 # server-status.sh
 # Sends out a status update to a discord webhook.
-# crontab: */5 * * * * /opt/automation/scripts/server_status.sh
+# crontab: */5 * * * * /opt/automation/scripts/server-status.sh
 #
 # Dependencies:
 # - curl
