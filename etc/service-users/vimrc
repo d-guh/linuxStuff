@@ -13,3 +13,4 @@ set belloff=all
 
 " Cosmetic
 colorscheme default
+set background=light

@@ -1,4 +1,4 @@
-# shared bash_aliases for service users
+# shared sh_aliases for service users
 
 # Simple aliases
 alias c="cd"
