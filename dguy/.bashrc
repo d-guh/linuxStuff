@@ -60,10 +60,10 @@ fi
 # Color prompt stuff
 # 1; bold
 # 92m intense green
-# 34m blue
+# 94m intense blue
 # 90m intense black (gray)
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;92m\]\u\[\e[1;00m\]@\[\e[1;92m\]\h\[\e[1;00m\]:\[\e[1;34m\]\w\[\e[1;90m\]\$\[\e[00m\] '
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;92m\]\u\[\e[1;00m\]@\[\e[1;92m\]\h\[\e[1;00m\]:\[\e[1;94m\]\w\[\e[1;90m\]\$\[\e[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

@@ -1,3 +1,5 @@
 useradd -m -d /home/dir -s /usr/sbin/nologin -G service-users username
 passwd -l username
-copy templates/ (as the new user)
+
+Copy files (as new user):
+cp -r /etc/service-users/templates/. .
