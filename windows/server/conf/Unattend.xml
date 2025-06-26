@@ -14,19 +14,6 @@
         <SkipMachineOOBE>true</SkipMachineOOBE>
         <SkipUserOOBE>true</SkipUserOOBE>
       </OOBE>
-      <UserAccounts>
-        <AdministratorPassword>
-          <Value>m0Nk3y!m0Nk3y!</Value>
-          <PlainText>true</PlainText>
-        </AdministratorPassword>
-      </UserAccounts>
-      <FirstLogonCommands>
-      <SynchronousCommand wcm:action="add">
-        <Order>1</Order>
-        <Description>Disable Password Expiration</Description>
-        <CommandLine>cmd /c wmic useraccount where name="Administrator" set PasswordExpires=false</CommandLine>
-      </SynchronousCommand>
-    </FirstLogonCommands>
     </component>
   </settings>
   <settings pass="specialize">
@@ -34,24 +21,21 @@
       <RunSynchronous>
         <RunSynchronousCommand wcm:action="add">
           <Order>1</Order>
-          <Path>cmd.exe /c ""C:\Program Files\Cloudbase Solutions\Cloudbase-Init\Python\Scripts\cloudbase-init.exe" --config-file "C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init-unattend.conf" &amp;&amp; exit 1 || exit 2"</Path>
-          <Description>Run Cloudbase-Init to set the hostname</Description>
-          <WillReboot>OnRequest</WillReboot>
+          <Path>sc.exe config cloudbase-init start= auto</Path>
+          <Description>Re-enable auto start of cloudbase-init</Description>
+          <WillReboot>Never</WillReboot>
         </RunSynchronousCommand>
         <RunSynchronousCommand wcm:action="add">
           <Order>2</Order>
-          <Path>net user administrator /active:yes</Path>
-          <Description>Enable Administrator User</Description>
+          <Path>sc.exe config cloudbase-init obj= .\LocalSystem</Path>
+          <Description>Give permissions to cloudbase</Description>
+          <WillReboot>Never</WillReboot>
         </RunSynchronousCommand>
         <RunSynchronousCommand wcm:action="add">
           <Order>3</Order>
-          <Path>wmic useraccount where name='Administrator' set PasswordExpires=false</Path>
-          <Description>Disable Administrator Password Expiration</Description>
-        </RunSynchronousCommand>
-        <RunSynchronousCommand wcm:action="add">
-          <Order>4</Order>
-          <Path>wmic useraccount where name='Administrator' set PasswordRequired=true</Path>
-          <Description>Ensure Password is Required</Description>
+          <Path>cmd.exe /c ""C:\Program Files\Cloudbase Solutions\Cloudbase-Init\Python\Scripts\cloudbase-init.exe" --config-file "C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init-unattend.conf" &amp;&amp; exit 1 || exit 2"</Path>
+          <Description>Run Cloudbase-Init to set the hostname</Description>
+          <WillReboot>OnRequest</WillReboot>
         </RunSynchronousCommand>
       </RunSynchronous>
     </component>
