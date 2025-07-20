@@ -1,0 +1,19 @@
+# /srv/steam/barotrauma/WorkshopMods/Installed/<ID>/filelist.xml
+
+# Load Order:
+2559634234 - Lua for Barotrauma (Client)
+2795927223 - Cs for Barotrauma (Client)
+2683570256 - 32x Stack
+3153737715 - Soundproof Walls
+2183524355 - Meaningful Upgrades
+3172973041 - Immersive Sonar UI (Vanilla Ed.)
+3241932936 - Old Suits (Mine)
+
+# ID Order:
+2183524355
+2559634234
+2683570256
+2795927223
+3153737715
+3172973041
+3241932936
