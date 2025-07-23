@@ -28,9 +28,9 @@ fi
 # 008 intense black (gray)
 # 015 intense white
 if [[ "$color_prompt" == "yes" ]]; then
-    PROMPT="[$(basename "$0")] %B%F{010}%n%f%b%F{015}@%f%B%F{010}%m%f%F{015}:%f%F{012}%~%f%F{008}$%f%b "
+    PROMPT="[$ZSH_NAME] %B%F{010}%n%f%b%F{015}@%f%B%F{010}%m%f%F{015}:%f%F{012}%~%f%F{008}$%f%b "
 else
-    PROMPT="[$(basename "$0")] %n@%m:%~$ "
+    PROMPT="[$ZSH_NAME] %n@%m:%~$ "
 fi
 PROMPT2="> "
 PROMPT3="> "
@@ -54,7 +54,8 @@ fi
 
 # Keybindings
 bindkey '^H' backward-kill-word                 # ctrl + backspace
-bindkey '5~' kill-word                          # ctrl + delete
+bindkey '^[[3~' delete-char                     # delete
+bindkey '^[[3;5~' kill-word                     # ctrl + delete
 bindkey '^[[1;5C' forward-word                  # ctrl + ->
 bindkey '^[[1;5D' backward-word                 # ctrl + <-
 bindkey '^[[5~' beginning-of-buffer-or-history  # page up

@@ -29,9 +29,9 @@ fi
 # 94m intense blue
 # 90m intense black (gray)
 if [ "$color_prompt" = yes ] ; then
-    PS1="[$(basename "$0")] \[\e[1;92m\]\u\[\e[1;00m\]@\[\e[1;92m\]\h\[\e[1;00m\]:\[\e[1;94m\]\w\[\e[1;90m\]\$\[\e[00m\] "
+    PS1="[$(basename "$BASH")] \[\e[1;92m\]\u\[\e[1;00m\]@\[\e[1;92m\]\h\[\e[1;00m\]:\[\e[1;94m\]\w\[\e[1;90m\]\$\[\e[00m\] "
 else
-    PS1="[$(basename "$0")] \u@\h:\w\$ "
+    PS1="[$(basename "$BASH")] \u@\h:\w\$ "
 fi
 PS2="> "
 PS3="> "
