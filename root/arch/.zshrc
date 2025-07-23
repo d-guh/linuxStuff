@@ -1,15 +1,12 @@
-# ~/.zshrc
+# ~/.zshrc ROOT
 # for zsh interactive shells
 
-# Privacy umask
 umask 0077
 
-# History settings
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=2000
 
-# set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
@@ -22,22 +19,22 @@ fi
 # Color prompt stuff
 # %B-%b bold
 # %F-%f format (color)
-# Uses 256 color codes
+# 001 red
 # 010 intense green
-# 012 intense blue
-# 008 intense black (gray)
+# 004 blue
+# 009 intense red
 # 015 intense white
 if [[ "$color_prompt" == "yes" ]]; then
-    PROMPT="[$ZSH_NAME] %B%F{010}%n%f%b%F{015}@%f%B%F{010}%m%f%b%F{015}:%f%B%F{012}%~%f%F{008}$%f%b "
+    PROMPT="[$ZSH_NAME] %B%F{001}%n%f%b%F{015}@%f%B%F{010}%m%f%b%F{015}:%f%B%F{004}%~%f%F{009}#%f%b "
 else
-    PROMPT="[$ZSH_NAME] %n@%m:%~$ "
+    PROMPT="[$ZSH_NAME] %n@%m:%~# "
 fi
 PROMPT2="> "
 PROMPT3="> "
 PROMPT4="+ "
 unset color_prompt force_color_prompt
 
-# Colored Commands
+# enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -47,10 +44,21 @@ if [ -x /usr/bin/dircolors ]; then
     # alias pacman="pacman --color=auto"
 fi
 
-# Alias definitions
-if [ -f ~/.sh_aliases ]; then
-    . ~/.sh_aliases
-fi
+# Avoid making mistakes:
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+
+alias c='cd'
+alias v='vim'
+alias vi='vim'
+
+alias l='ls -CF'
+alias la='ls -aF'
+alias ll='ls -lF'
+alias lla='ls -laF'
+
+alias cls='clear'
 
 # Keybindings
 bindkey '^H' backward-kill-word                 # ctrl + backspace
@@ -64,6 +72,6 @@ bindkey '^[[H' beginning-of-line                # home
 bindkey '^[[F' end-of-line                      # end
 bindkey '^Z' undo                               # shift + tab (undo last action)
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/doc/pkgfile/command-not-found.zsh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source /usr/share/doc/pkgfile/command-not-found.zsh

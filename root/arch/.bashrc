@@ -1,15 +1,11 @@
-# ~/.bashrc
+# ~/.bashrc ROOT
 # for bash interactive shells
 
 [[ $- != *i* ]] && return
 
-# Privacy umask
 umask 0077
 
-# Window resizing
 shopt -s checkwinsize
-
-# History settings
 shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
@@ -25,20 +21,20 @@ fi
 
 # Color prompt stuff
 # 1; bold
+# 31m red
 # 92m intense green
-# 94m intense blue
-# 90m intense black (gray)
-if [ "$color_prompt" = yes ] ; then
-    PS1="[$(basename $BASH)] \[\e[1;92m\]\u\[\e[0;00m\]@\[\e[1;92m\]\h\[\e[0;00m\]:\[\e[1;94m\]\w\[\e[1;90m\]\$\[\e[00m\] "
+# 34m blue
+# 91m intense red
+if [ "$color_prompt" = yes ]; then
+    PS1="[$(basename $BASH)] \[\e[1;31m\]\u\[\e[0;00m\]@\[\e[1;92m\]\h\[\e[0;00m\]:\[\e[1;34m\]\w\[\e[1;91m\]#\[\e[00m\] "
 else
-    PS1="[$(basename $BASH)] \u@\h:\w\$ "
+    PS1="[$(basename $BASH)] \u@\h:\w# "
 fi
 PS2="> "
 PS3="> "
 PS4="+ "
 unset color_prompt force_color_prompt
 
-# Colored commands
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -48,10 +44,21 @@ if [ -x /usr/bin/dircolors ]; then
     # alias pacman="pacman --color=auto"
 fi
 
-# Alias definitions
-if [ -f ~/.sh_aliases ]; then
-    . ~/.sh_aliases
-fi
+# Avoid making mistakes:
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
 
-[ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
-[ -r /usr/share/doc/pkgfile/command-not-found.bash ] && . /usr/share/doc/pkgfile/command-not-found.bash
+alias c='cd'
+alias v='vim'
+alias vi='vim'
+
+alias l='ls -CF'
+alias la='ls -aF'
+alias ll='ls -lF'
+alias lla='ls -laF'
+
+alias cls='clear'
+
+#[ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
+#[ -r /usr/share/doc/pkgfile/command-not-found.bash ] && . /usr/share/doc/pkgfile/command-not-found.bash

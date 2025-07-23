@@ -56,7 +56,7 @@ fi
 if [[ "$color_prompt" == "yes" ]]; then
     PROMPT='%B%F{001}%n%f@%F{010}%m%f:%F{004}%~%f%F{009}#%f%b '
 else
-    PROMPT='%n@%m:%~$ '
+    PROMPT='%n@%m:%~# '
 fi
 unset color_prompt force_color_prompt
 
