@@ -1,50 +1,22 @@
-# ~/.zshrc file for zsh interactive shells
-# see /usr/share/doc/zsh/examples/zshrc for examples
-
-echo "> Sourcing '~/.zshrc'..."
+# ~/.zshrc
+# For zsh interactive shells
 
 # Privacy umask
 umask 0077
 
-# Keybindings
-bindkey '^H' backward-kill-word                 # ctrl + backspace
-bindkey '5~' kill-word                          # ctrl + delete
-bindkey '^[[1;5C' forward-word                  # ctrl + ->
-bindkey '^[[1;5D' backward-word                 # ctrl + <-
-bindkey '^[[5~' beginning-of-buffer-or-history  # page up
-bindkey '^[[6~' end-of-buffer-or-history        # page down
-bindkey '^[[H' beginning-of-line                # home
-bindkey '^[[F' end-of-line                      # end
-bindkey '^Z' undo                               # shift + tab (undo last action)
-
-# Command history
+# History options
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=2000
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set a fancy prompt (non-color, unless we know we "want" color)
+# Color prompt
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt="yes";;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-# force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        # We have color support; assume it's compliant with Ecma-48
-        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-        # a case would tend to support setf rather than setaf.)
-        color_prompt=yes
-    else
-        color_prompt=
-    fi
+#force_color_prompt="yes"
+if [ "$force_color_prompt" = "yes" ]; then
+    color_prompt="yes"
 fi
 
 # Color prompt stuff
@@ -54,40 +26,42 @@ fi
 # 010 intense green
 # 012 intense blue
 # 008 intense black (gray)
-if [[ "$color_prompt" == "yes" ]]; then
-    PROMPT='%B%F{010}%n%f@%F{010}%m%f:%F{012}%~%f%F{008}$%f%b '
+# 015 intense white
+if [ "$color_prompt" = "yes" ]; then
+    PROMPT="[${0#-}] %B%F{010}%n%f%b%F{015}@%f%B%F{010}%m%f%b%F{015}:%f%B%F{012}%~%f%F{008}$%f%b "
 else
-    PROMPT='%n@%m:%~$ '
+    PROMPT="[${0#-}] %n@%m:%~$ "
 fi
+PROMPT2="> "
+PROMPT3="> "
+PROMPT4="+ "
 unset color_prompt force_color_prompt
 
-# Terminal title (for xterm/rxvt/etc)
-case "$TERM" in
-xterm*|rxvt*)
-    precmd() {
-        print -Pn "\e]0;${debian_chroot:+($debian_chroot)}%n@%m: %~\a"
-    }
-    ;;
-esac
-
-# enable color support of ls and also add handy aliases
+# Colored commands
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
+    alias dir='dir --color=auto'
     alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    alias dmesg='desmg --color'
 fi
 
 # Alias definitions
 if [ -f ~/.sh_aliases ]; then
-    . ~/.sh_aliases
+    source ~/.sh_aliases
 fi
 
-# Stop error sounds
-set bell-style none
+# Keybindings
+bindkey '^H' backward-kill-word                 # ctrl + backspace
+bindkey '^[[3~' delete-char                     # delete
+bindkey '^[[3;5~' kill-word                     # ctrl + delete
+bindkey '^[[1;5C' forward-word                  # ctrl + ->
+bindkey '^[[1;5D' backward-word                 # ctrl + <-
+bindkey '^[[5~' beginning-of-buffer-or-history  # page up
+bindkey '^[[6~' end-of-buffer-or-history        # page down
+bindkey '^[[H' beginning-of-line                # home
+bindkey '^[[F' end-of-line                      # end
+bindkey '^Z' undo                               # shift + tab (undo last action)
 
-echo "< Sourced '~/.zshrc'."
+[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

@@ -1,4 +1,6 @@
 " ~/.vimrc
+" For root vim
+
 syntax on
 
 " Cosmetic

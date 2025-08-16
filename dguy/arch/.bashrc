@@ -1,7 +1,10 @@
 # ~/.bashrc
 # for bash interactive shells
 
-[[ $- != *i* ]] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # Privacy umask
 umask 0077
@@ -15,20 +18,21 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt="yes";;
 esac
 
-#force_color_prompt=yes
-if [ "$force_color_prompt" = yes ]; then
-    color_prompt=yes
+#force_color_prompt="yes"
+if [ "$force_color_prompt" = "yes" ]; then
+    color_prompt="yes"
 fi
 
 # Color prompt stuff
 # 1; bold
+# 00m reset (white)
 # 92m intense green
 # 94m intense blue
 # 90m intense black (gray)
-if [ "$color_prompt" = yes ] ; then
+if [ "$color_prompt" = "yes" ] ; then
     PS1="[$(basename $BASH)] \[\e[1;92m\]\u\[\e[0;00m\]@\[\e[1;92m\]\h\[\e[0;00m\]:\[\e[1;94m\]\w\[\e[1;90m\]\$\[\e[00m\] "
 else
     PS1="[$(basename $BASH)] \u@\h:\w\$ "
@@ -50,8 +54,7 @@ fi
 
 # Alias definitions
 if [ -f ~/.sh_aliases ]; then
-    . ~/.sh_aliases
+    source ~/.sh_aliases
 fi
 
-[ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
-[ -r /usr/share/doc/pkgfile/command-not-found.bash ] && . /usr/share/doc/pkgfile/command-not-found.bash
+[ -r /usr/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion

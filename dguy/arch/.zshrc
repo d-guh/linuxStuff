@@ -11,12 +11,12 @@ SAVEHIST=2000
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt="yes";;
 esac
 
-# force_color_prompt=yes
-if [ "$force_color_prompt" = yes ]; then
-    color_prompt=yes
+# force_color_prompt="yes"
+if [ "$force_color_prompt" = "yes" ]; then
+    color_prompt="yes"
 fi
 
 # Color prompt stuff
@@ -27,7 +27,7 @@ fi
 # 012 intense blue
 # 008 intense black (gray)
 # 015 intense white
-if [[ "$color_prompt" == "yes" ]]; then
+if [ "$color_prompt" = "yes" ]; then
     PROMPT="[$ZSH_NAME] %B%F{010}%n%f%b%F{015}@%f%B%F{010}%m%f%b%F{015}:%f%B%F{012}%~%f%F{008}$%f%b "
 else
     PROMPT="[$ZSH_NAME] %n@%m:%~$ "
@@ -49,7 +49,7 @@ fi
 
 # Alias definitions
 if [ -f ~/.sh_aliases ]; then
-    . ~/.sh_aliases
+    source ~/.sh_aliases
 fi
 
 # Keybindings
@@ -64,6 +64,6 @@ bindkey '^[[H' beginning-of-line                # home
 bindkey '^[[F' end-of-line                      # end
 bindkey '^Z' undo                               # shift + tab (undo last action)
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/doc/pkgfile/command-not-found.zsh
+[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -r /usr/share/doc/pkgfile/command-not-found.zsh ] && source /usr/share/doc/pkgfile/command-not-found.zsh

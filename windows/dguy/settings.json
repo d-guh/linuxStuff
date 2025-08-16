@@ -67,6 +67,7 @@
             },
             {
                 "antialiasingMode": "cleartype",
+                "bellStyle": "none",
                 "commandline": "\"C:\\Program Files\\PowerShell\\7\\pwsh.exe\"",
                 "font": 
                 {
@@ -84,6 +85,7 @@
             },
             {
                 "antialiasingMode": "cleartype",
+                "bellStyle": "none",
                 "commandline": "\"C:\\Program Files\\PowerShell\\7\\pwsh.exe\"",
                 "font": 
                 {
@@ -102,6 +104,7 @@
             {
                 "altGrAliasing": true,
                 "antialiasingMode": "aliased",
+                "bellStyle": "none",
                 "closeOnExit": "automatic",
                 "colorScheme": "Fallout",
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
@@ -114,14 +117,10 @@
                 },
                 "guid": "{aa195c4b-9e7d-4055-8b59-fc32d77fa280}",
                 "hidden": false,
-                "historySize": 9001,
                 "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
                 "name": "Fallout",
                 "padding": "0",
-                "scrollbarState": "hidden",
-                "snapOnInput": true,
-                "startingDirectory": "%USERPROFILE%",
-                "useAcrylic": false
+                "scrollbarState": "hidden"
             }
         ]
     },

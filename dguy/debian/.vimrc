@@ -1,4 +1,5 @@
 " ~/.vimrc
+
 set autoindent
 set smartindent
 set tabstop=4 softtabstop=0

@@ -1,8 +1,6 @@
 # ~/.sh_aliases
 # Generic shell aliases
 
-echo "> Sourcing '~/.sh_aliases'..."
-
 # Simple aliases
 alias c="cd"
 alias v="vim"
@@ -42,5 +40,3 @@ gitmultipull() {
 ccat() { echo -e "$(cat $1)"; }
 
 ipinfo() { curl "https://ipinfo.io/$@"; }
-
-echo "< Sourced '~/.sh_aliases'."
