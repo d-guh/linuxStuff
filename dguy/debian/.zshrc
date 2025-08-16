@@ -28,9 +28,9 @@ fi
 # 008 intense black (gray)
 # 015 intense white
 if [ "$color_prompt" = "yes" ]; then
-    PROMPT="[${0#-}] %B%F{010}%n%f%b%F{015}@%f%B%F{010}%m%f%b%F{015}:%f%B%F{012}%~%f%F{008}$%f%b "
+    PROMPT="[$ZSH_NAME] %B%F{010}%n%f%b%F{015}@%f%B%F{010}%m%f%b%F{015}:%f%B%F{012}%~%f%F{008}$%f%b "
 else
-    PROMPT="[${0#-}] %n@%m:%~$ "
+    PROMPT="[$ZSH_NAME] %n@%m:%~$ "
 fi
 PROMPT2="> "
 PROMPT3="> "
@@ -46,11 +46,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias dmesg='desmg --color'
 fi
 
-# Alias definitions
-if [ -f ~/.sh_aliases ]; then
-    source ~/.sh_aliases
-fi
-
 # Keybindings
 bindkey '^H' backward-kill-word                 # ctrl + backspace
 bindkey '^[[3~' delete-char                     # delete
@@ -63,5 +58,9 @@ bindkey '^[[H' beginning-of-line                # home
 bindkey '^[[F' end-of-line                      # end
 bindkey '^Z' undo                               # shift + tab (undo last action)
 
+# Alias definitions
+[ -f ~/.sh_aliases ] && source ~/.sh_aliases
+
+# Fancy zsh features
 [ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

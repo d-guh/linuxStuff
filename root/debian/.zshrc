@@ -29,10 +29,13 @@ fi
 # 009 intense red
 # 015 intense wdadahite
 if [[ "$color_prompt" == "yes" ]]; then
-    PROMPT="[${0#-}] %B%F{001}%n%f@%F{010}%m%f:%F{012}%~%f%F{009}#%f%b "
+    PROMPT="[$ZSH_NAME] %B%F{001}%n%f@%F{010}%m%f:%F{012}%~%f%F{009}#%f%b "
 else
-    PROMPT="[${0#-}] %n@%m:%~# "
+    PROMPT="[$ZSH_NAME] %n@%m:%~# "
 fi
+PROMPT2="> "
+PROMPT3="> "
+PROMPT4="+ "
 unset color_prompt force_color_prompt
 
 # Colored commands

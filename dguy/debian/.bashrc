@@ -39,9 +39,9 @@ fi
 # 94m intense blue
 # 90m intense black (gray)
 if [ "$color_prompt" = "yes" ]; then
-    PS1="[${0#-}] \[\e[1;92m\]\u\[\e[1;00m\]@\[\e[1;92m\]\h\[\e[1;00m\]:\[\e[1;94m\]\w\[\e[1;90m\]\\$\[\e[00m\] "
+    PS1="[$(basename $BASH)] \[\e[1;92m\]\u\[\e[1;00m\]@\[\e[1;92m\]\h\[\e[1;00m\]:\[\e[1;94m\]\w\[\e[1;90m\]\\$\[\e[00m\] "
 else
-    PS1="[${0#-}] \u@\h:\w\\$ "
+    PS1="[$(basename $BASH)] \u@\h:\w\\$ "
 fi
 PS2="> "
 PS3="> "
@@ -58,8 +58,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Alias definitions
-if [ -f ~/.sh_aliases ]; then
-    source ~/.sh_aliases
-fi
+[ -f ~/.sh_aliases ] && source ~/.sh_aliases
 
+# Fancy bash features
 [ -r /usr/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion
