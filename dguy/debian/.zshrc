@@ -28,9 +28,9 @@ fi
 # 008 intense black (gray)
 # 015 intense white
 if [ "$color_prompt" = "yes" ]; then
-    PROMPT="[$ZSH_NAME] %B%F{010}%n%f%b%F{015}@%f%B%F{010}%m%f%b%F{015}:%f%B%F{012}%~%f%F{008}$%f%b "
+    PROMPT="[$(ps -p $$ -o comm=)] %B%F{010}%n%f%b%F{015}@%f%B%F{010}%m%f%b%F{015}:%f%B%F{012}%~%f%F{008}$%f%b "
 else
-    PROMPT="[$ZSH_NAME] %n@%m:%~$ "
+    PROMPT="[$(ps -p $$ -o comm=)] %n@%m:%~$ "
 fi
 PROMPT2="> "
 PROMPT3="> "
@@ -59,8 +59,8 @@ bindkey '^[[F' end-of-line                      # end
 bindkey '^Z' undo                               # shift + tab (undo last action)
 
 # Alias definitions
-[ -f ~/.sh_aliases ] && source ~/.sh_aliases
+[ -r ~/.sh_aliases ] && source ~/.sh_aliases
 
 # Fancy zsh features
-[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -r /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -r /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
