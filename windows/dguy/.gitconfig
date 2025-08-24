@@ -4,8 +4,8 @@
     email = ddcool535@gmail.com
     signingkey = 093AF076C78E9DD4
 [core]
-    #autocrlf = true # Windows (CRLF -> LF on commit, LF -> CRLF on checkout)
-    autocrlf = input # Linux/Mac (CRLF -> LF on commit, LF on checkout)
+    autocrlf = true # Windows (CRLF -> LF on commit, LF -> CRLF on checkout)
+    #autocrlf = input # Linux/Mac (CRLF -> LF on commit, LF on checkout)
     safecrlf = warn # Warns on conversion (Mixed ending files cannot be recreated)
 [init]
     defaultBranch = main
@@ -24,8 +24,8 @@
     type = cat-file -t
     dump = cat-file -p
 [gpg]
-    program = gpg
-    #program = "gpg --homedir ~/dguy/.gpg" # Or set env variable 'GNUPGHOME=/home/dguy/.gpg'
+    program = "C:/Program Files (x86)/Gpg4win/../GnuPG/bin/gpg.exe"
+    #program = "C:/Program Files (x86)/Gpg4win/../GnuPG/bin/gpg.exe --homedir C:/Users/dguy/.gpg" # Or set env variable 'GNUPGHOME = C:\Users\dguy\.gpg'
 [commit]
     gpgsign = true # Auto sign commits
 [tag]
