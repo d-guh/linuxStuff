@@ -16,7 +16,6 @@ lf
 lm-sensors
 lolcat
 ncat
-network-manager
 nmap
 python3
 python3-venv
@@ -32,6 +31,7 @@ unzip
 vim
 neovim
 wget
+whois
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
