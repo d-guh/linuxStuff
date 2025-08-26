@@ -8,6 +8,7 @@ dnsutils
 fastfetch
 g++
 gcc
+git
 grep
 htop
 iputils-ping
