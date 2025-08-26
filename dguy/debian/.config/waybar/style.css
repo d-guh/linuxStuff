@@ -1,0 +1,10 @@
+* {
+  font-family: "Fira Sans", "Noto Sans", "Font Awesome 6 Free", "Material Icons", sans-serif;
+  font-size: 13px;
+  color: #ffffff;
+  background: #1e1e1e;
+}
+
+#workspaces button.focused {
+  background: #0078d7; /* Windows blue */
+}

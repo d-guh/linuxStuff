@@ -1,0 +1,7 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "modules-left": ["workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray", "network", "battery"]
+}

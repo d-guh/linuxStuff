@@ -1,0 +1,12 @@
+#!/bin/sh
+# Set wallpaper
+swaybg -i /usr/share/backgrounds/reach.png -m fill &
+
+# Run bar
+waybar &
+
+# Notifications
+swaync &
+
+# Idle lock + suspend
+swayidle -w timeout 300 'swaylock -f' timeout 600 'systemctl suspend' &

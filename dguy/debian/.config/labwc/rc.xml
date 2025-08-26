@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<labwc_config>
+
+  <!-- Keybindings -->
+  <keyboard>
+    <!-- Launch terminal -->
+    <keybind key="Super+Return">
+      <action name="Execute">
+        <command>alacritty</command>
+      </action>
+    </keybind>
+
+    <!-- Launch app menu -->
+    <keybind key="Super_L">
+      <action name="Execute">
+        <command>wofi --show drun</command>
+      </action>
+    </keybind>
+
+    <!-- Close window -->
+    <keybind key="Alt+F4">
+      <action name="Close"/>
+    </keybind>
+
+    <!-- Switch windows -->
+    <keybind key="Alt+Tab">
+      <action name="NextWindow"/>
+    </keybind>
+  </keyboard>
+
+  <!-- Mouse bindings -->
+  <mouse>
+    <context name="Titlebar">
+      <mousebind button="Left" action="Drag"/>
+    </context>
+  </mouse>
+
+  <!-- Theme -->
+  <theme>
+    <name>Default</name>
+    <titleLayout>NLIMC</titleLayout>
+  </theme>
+
+</labwc_config>
