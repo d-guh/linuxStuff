@@ -67,19 +67,36 @@ server {
         return 403;
     }
 
+    # Logging
+    error_log logs/error.log error;
+    access_log /var/log/nginx/access.log combined;
+
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/dguy.net/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/dguy.net/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-    # Logging
-    error_log logs/error.log error;
-    access_log /var/log/nginx/access.log combined;
 }
 
+#server {
+#    listen 80;
+#    server_name dguy.net www.dguy.net 99.96.122.118 99-96-122-118.lightspeed.gnvlsc.sbcglobal.net;
+#    return 301 https://dguy.net$request_uri;
+#}
+
+
 server {
+    if ($host = www.dguy.net) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = dguy.net) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    server_name dguy.net www.dguy.net;
     listen 80;
-    server_name dguy.net www.dguy.net 99.96.122.118 99-96-122-118.lightspeed.gnvlsc.sbcglobal.net;
-    return 301 https://dguy.net$request_uri;
+    return 301 https://www.dguy.net$request_uri; # managed by Certbot (custom)
 }

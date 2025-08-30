@@ -108,7 +108,7 @@ PermitTunnel no
 #VersionAddendum none
 
 # no default banner path
-Banner /etc/ssh/dbanner.txt
+Banner /etc/ssh/dbanner
 
 # Allow client to pass locale environment variables
 AcceptEnv LANG LC_*

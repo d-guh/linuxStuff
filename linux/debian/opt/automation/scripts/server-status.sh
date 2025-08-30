@@ -15,6 +15,7 @@
 
 # Config Vars
 WEBHOOK_URL="" # ADD URL HERE
+LOG_TAG_PREFIX="automation"
 LOG_TAG="server-status"
 
 # Helper Functions
@@ -74,7 +75,8 @@ JSON_PAYLOAD=$(printf '{
         }
     ]
 }' "$SERVER_TIME" "$CPU_USAGE" "$CPU_TEMP" "$MEMORY_USAGE" "$DISK_USAGE")
+LOG_MESSAGE="Status: CPU: ${CPU_USAGE}%, Temp: ${CPU_TEMP}°C, Memory: ${MEMORY_USAGE}, Disk: ${DISK_USAGE}"
 
 # Send Message
-logger -t "$LOG_TAG" "Status: CPU: ${CPU_USAGE}%, Temp: ${CPU_TEMP}°C, Memory: ${MEMORY_USAGE}, Disk: ${DISK_USAGE}"
+logger -t "$LOG_TAG_PREFIX.$LOG_TAG" "$LOG_MESSAGE"
 curl -s -H "Content-Type: application/json" -X POST -d "$JSON_PAYLOAD" "$WEBHOOK_URL" >/dev/null 2>&1

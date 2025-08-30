@@ -8,11 +8,13 @@
 # - curl
 # - logger
 
-WEBHOOK_URL="https://discord.com/api/webhooks/1335325610561765476/oX41jKbvLjEBRUde-G6iM2Au_i9hfWaKD5HtQacAn3QaqN2Nq2uQEOjcElSWBqoUCUq_"
+WEBHOOK_URL="" # ADD URL HERE
+LOG_TAG_PREFIX="automation"
 LOG_TAG="nut-alert"
 
 EVENT="$1"
 MESSAGE="<@348121438169071618> :zap: :information_source:\\n**NUT Event:** \`$EVENT\` detected on UPS 'ABST800'"
+LOG_MESSAGE="$LOG_TAG_PREFIX.$LOG_TAG" "NUT Event: $EVENT detected on UPS 'ABST800'"
 
-logger -t "$LOG_TAG" "NUT Event: $EVENT detected on UPS 'ABST800'"
+logger -t "$LOG_TAG_PREFIX.$LOG_TAG" "$LOG_MESSAGE"
 curl -s -H "Content-Type: application/json" -X POST -d "{\"content\": \"$MESSAGE\"}" "$WEBHOOK_URL" >/dev/null 2>&1

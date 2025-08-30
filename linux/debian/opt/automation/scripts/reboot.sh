@@ -11,6 +11,7 @@
 
 # Config Vars
 WEBHOOK_URL="" # ADD URL HERE
+LOG_TAG_PREFIX="automation"
 LOG_TAG="reboot"
 
 # Helper Functions
@@ -24,7 +25,7 @@ send_discord_message() {
 
 log_and_notify() {
     message="$1"
-    logger -t "$LOG_TAG" "$message"
+    logger -t "$LOG_TAG_PREFIX.$LOG_TAG" "$message"
     wall "$message"
     send_discord_message "$message"
 }

@@ -14,6 +14,7 @@
 
 # Config Vars
 WEBHOOK_URL="" # ADD URL HERE
+LOG_TAG_PREFIX="automation"
 LOG_TAG="crit-alert"
 
 # Define Thresholds
@@ -44,17 +45,17 @@ ALERT_CONTENT=""
 # Check conditions and send alert if any threshold is exceeded
 if awk "BEGIN {exit !($CPU_USAGE > $CPU_USAGE_THRESHOLD)}"; then
     ALERT_CONTENT="${ALERT_CONTENT}:warning: **High CPU Usage**\\nCPU Usage: \`$CPU_USAGE%\`\\n"
-    logger -t "$LOG_TAG" "High CPU usage detected: $CPU_USAGE%."
+    logger -t "$LOG_TAG_PREFIX.$LOG_TAG" "High CPU usage detected: $CPU_USAGE%."
 fi
 
 if awk "BEGIN {exit !($MEM_USAGE > $MEM_USAGE_THRESHOLD)}"; then
     ALERT_CONTENT="${ALERT_CONTENT}:warning: **High RAM Usage**\\nMemory Usage: \`$MEM_USAGE%\`\\n"
-    logger -t "$LOG_TAG" "High memory usage detected: $MEM_USAGE%."
+    logger -t "$LOG_TAG_PREFIX.$LOG_TAG" "High memory usage detected: $MEM_USAGE%."
 fi
 
 if awk "BEGIN {exit !($CPU_TEMP > $TEMP_THRESHOLD)}"; then
     ALERT_CONTENT="${ALERT_CONTENT}:warning: **High CPU Temperature**\\nCPU Temperature: \`$CPU_TEMP°C\`\\n"
-    logger -t "$LOG_TAG" "High CPU Temperature detected: $CPU_TEMP°C."
+    logger -t "$LOG_TAG_PREFIX.$LOG_TAG" "High CPU Temperature detected: $CPU_TEMP°C."
 fi
 
 if [ -n "$ALERT_CONTENT" ]; then
