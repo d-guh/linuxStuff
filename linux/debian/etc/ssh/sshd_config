@@ -11,9 +11,9 @@
 Include /etc/ssh/sshd_config.d/*.conf
 
 Port 16762
-AddressFamily inet
+AddressFamily inet inet6
 ListenAddress 0.0.0.0
-#ListenAddress ::
+ListenAddress ::
 
 #HostKey /etc/ssh/ssh_host_rsa_key
 #HostKey /etc/ssh/ssh_host_ecdsa_key
@@ -100,7 +100,7 @@ PrintMotd yes # /etc/motd
 #Compression delayed
 ClientAliveInterval 300 # Keep-alive packets every 5min
 ClientAliveCountMax 3 # Disconnect after 15min of inactivity
-#UseDNS no
+UseDNS no
 #PidFile /run/sshd.pid
 #MaxStartups 10:30:100
 PermitTunnel no
