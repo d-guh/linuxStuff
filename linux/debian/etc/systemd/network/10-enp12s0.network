@@ -2,8 +2,7 @@
 Name=enp12s0
 
 [Network]
-DHCP=yes
-
-# Override upstream DNS
-# DNS=1.1.1.1
-# DNS=9.9.9.9
+#DHCP=yes
+Address=192.168.2.64/24
+Gateway=192.168.2.1
+#DNS=1.1.1.1 9.9.9.9

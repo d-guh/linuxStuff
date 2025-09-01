@@ -13,6 +13,8 @@ WEBHOOK_URL="" # ADD URL HERE
 LOG_TAG_PREFIX="automation"
 LOG_TAG="startup-alert"
 
+sleep 5 # Allow time for inet to connect
+
 SERVER_TIME=$(date +"%Y-%m-%d %H:%M:%S %Z")
 MESSAGE="<@348121438169071618> :green_circle: :white_check_mark:\\n**Server has started successfully**\\nServer Time: \`$SERVER_TIME\`"
 LOG_MESSAGE="Server startup completed"
