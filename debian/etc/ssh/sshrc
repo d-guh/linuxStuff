@@ -17,4 +17,4 @@ else
 fi
 
 logger -t "$LOG_TAG_PREFIX.$LOG_TAG" "$LOG_MESSAGE"
-curl -s -H "Content-Type: application/json" -X POST -d "{\"content\": \"$MESSAGE\"}" "$WEBHOOK_URL" >/dev/null 2>&1
+curl -s -H "Content-Type: application/json" -X POST -d "{\"content\": \"$MESSAGE\"}" "$WEBHOOK_URL" >/dev/null 2>&1 &
