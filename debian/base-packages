@@ -2,7 +2,6 @@ aptitude
 bash
 bash-completion
 build-essential
-cmatrix
 curl
 dnsutils
 fastfetch
@@ -14,7 +13,6 @@ htop
 iputils-ping
 lf
 lm-sensors
-lolcat
 ncat
 nmap
 python3
