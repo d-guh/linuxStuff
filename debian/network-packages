@@ -1,2 +1,13 @@
-network-manager
 nftables
+dnsutils
+iputils-ping
+traceroute
+mtr
+whois
+smbclient
+netcat-traditional
+netcat-openbsd
+openssh-client
+openssh-server
+mosh
+wireguard
